@@ -18,18 +18,11 @@ def download_pdf(vp):
     url = vp.url
     i = 1
     base_str = f"{party}_{year}"
-    
-    # print(base_str)
-    
-    if "/" in base_str:
-        base_str = base_str.replace("/", "_")
-    
     # while os.path.exists(f"programmas/{base_str}.pdf"):
     #     base_str += f"_{i}"
         
     if os.path.exists(f"programmas/{base_str}.pdf"):
-        print("Already downloaded")
-        return
+        continue
 
     response = requests.get(url)
     print(response.status_code)
@@ -41,28 +34,10 @@ def download_pdf(vp):
 
 with open('flat_programmas.pkl', 'rb') as file:
     programmas = pickle.load(file)
-    
 
 total_len = len(programmas)
-
 
 for i, item in enumerate(programmas, 1):
     print(f"Downloading item {i}/{total_len}")
     download_pdf(item)
 
-
-
-### testssss
-j = []
-
-for i, item in enumerate(programmas, 1):
-    if item.party == "VVD":
-        if item.year == 2003:
-            j.append(item)
-        
-     
-      
-[x.url for x in j]
-
-
-j

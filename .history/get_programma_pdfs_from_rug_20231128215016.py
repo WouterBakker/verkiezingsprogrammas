@@ -50,19 +50,3 @@ for i, item in enumerate(programmas, 1):
     print(f"Downloading item {i}/{total_len}")
     download_pdf(item)
 
-
-
-### testssss
-j = []
-
-for i, item in enumerate(programmas, 1):
-    if item.party == "VVD":
-        if item.year == 2003:
-            j.append(item)
-        
-     
-      
-[x.url for x in j]
-
-
-j
