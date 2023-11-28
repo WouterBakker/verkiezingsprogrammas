@@ -1,15 +1,5 @@
 import requests
 import pickle
-import sys, os
-
-
-class Verkiezingsprogramma:
-    def __init__(self, party, year, url, raw_text):
-        self.party = party
-        self.year = year
-        self.url = url
-        self.raw_text = raw_text
-        
 
 def download_pdf(vp):
     """vp = verkiezingsprogramma class"""
@@ -27,11 +17,10 @@ def download_pdf(vp):
     with open(filename, 'wb') as pdf_file:
         pdf_file.write(response.content)
 
-# sys.setrecursionlimit(10000)
-
 with open('flat_programmas.pkl', 'rb') as file:
     programmas = pickle.load(file)
 
-for item in programmas:
+
+for item in subs:
     download_pdf(item)
 
