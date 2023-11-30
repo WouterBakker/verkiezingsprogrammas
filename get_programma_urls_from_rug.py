@@ -55,7 +55,6 @@ def download_pages(id):
                     except:
                         year = date
 
-
             if purpose != "Tweede Kamerverkiezingen":
                 counter += 1
                 continue
